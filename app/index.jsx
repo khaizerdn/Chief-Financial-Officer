@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Modal, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, TextInput, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import globalStyles from './globalStyles';
 
@@ -35,73 +35,79 @@ const App = () => {
       >
         <View style={globalStyles.modalOverlay}>
           <View style={globalStyles.modalContainer}>
-            <Text style={globalStyles.modalTitle}>New Entry</Text>
-            <TextInput
-              placeholder="Note"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={note}
-              onChangeText={setNote}
-            />
-            <TextInput
-              placeholder="Name"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={name}
-              onChangeText={setName}
-            />
-            <TextInput
-              placeholder="Amount"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={amount}
-              onChangeText={setAmount}
-              keyboardType="numeric"
-            />
-            <TextInput
-              placeholder="Type"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={type}
-              onChangeText={setType}
-            />
-            <TextInput
-              placeholder="Wallet"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={wallet}
-              onChangeText={setWallet}
-            />
-            <TextInput
-              placeholder="Date"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={date}
-              editable={false}
-            />
-            <TextInput
-              placeholder="Due Date"
-              placeholderTextColor="#ccc"
-              style={globalStyles.input}
-              value={dueDate}
-              onChangeText={setDueDate}
-            />
+            <ScrollView contentContainerStyle={{ padding: 20 }}>
+              <Text style={globalStyles.modalTitle}>New Entry</Text>
+              <TextInput
+                placeholder="Note"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={note}
+                onChangeText={setNote}
+              />
+              <TextInput
+                placeholder="Name"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={name}
+                onChangeText={setName}
+              />
+              <TextInput
+                placeholder="Amount"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={amount}
+                onChangeText={setAmount}
+                keyboardType="numeric"
+              />
+              <TextInput
+                placeholder="Type"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={type}
+                onChangeText={setType}
+              />
+              <TextInput
+                placeholder="Wallet"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={wallet}
+                onChangeText={setWallet}
+              />
+              <TextInput
+                placeholder="Date"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={date}
+                editable={false}
+              />
+              <TextInput
+                placeholder="Due Date"
+                placeholderTextColor="#ccc"
+                style={globalStyles.input}
+                value={dueDate}
+                onChangeText={setDueDate}
+              />
 
-            <View style={globalStyles.modalButtons}>
-              <TouchableOpacity style={globalStyles.actionButton} onPress={() => setModalVisible(false)}>
-                <Text style={globalStyles.actionButtonText}>Cancel</Text>
-              </TouchableOpacity>
+              {/* Buttons are now attached immediately after the last input */}
+              <View style={globalStyles.modalButtons}>
+                <TouchableOpacity
+                  style={globalStyles.actionButton}
+                  onPress={() => setModalVisible(false)}
+                >
+                  <Text style={globalStyles.actionButtonText}>Cancel</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                style={globalStyles.actionButton}
-                onPress={() => {
-                  console.log({ note, name, amount, type, wallet, date, dueDate });
-                  setModalVisible(false);
-                }}
-              >
-                <Text style={globalStyles.actionButtonText}>Submit</Text>
-              </TouchableOpacity>
-            </View>
+                <TouchableOpacity
+                  style={globalStyles.actionButton}
+                  onPress={() => {
+                    console.log({ note, name, amount, type, wallet, date, dueDate });
+                    setModalVisible(false);
+                  }}
+                >
+                  <Text style={globalStyles.actionButtonText}>Submit</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
           </View>
         </View>
       </Modal>
