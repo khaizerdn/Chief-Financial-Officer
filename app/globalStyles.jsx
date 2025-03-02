@@ -1,72 +1,88 @@
 import { StyleSheet } from 'react-native';
 
+const COLORS = {
+  bgLayer0: '#121212',
+  bgLayer1: '#1E1E1E',
+  bgLayer2: '#2A2A2A',
+  bgLayer3: '#363636',
+  textColor0: '#FFFFFF',
+  textMuted: '#808080',
+  accent: '#FFFFFF',
+  navActive: '#FFFFFF',
+  navInactive: '#808080',
+};
+
+const SPACING = {
+  small: 10,
+  medium: 15,
+  large: 20,
+};
+
+const FONT_SIZES = {
+  small: 14,
+  medium: 16,
+  large: 18,
+  title: 20,
+  heading: 24,
+};
+
 const globalStyles = StyleSheet.create({
-  // Base container for screens
   container: {
     flex: 1,
-    backgroundColor: '#121212',
-    padding: 20,
+    backgroundColor: COLORS.bgLayer0,
+    padding: SPACING.large,
   },
-  // Main title style
   title: {
-    fontSize: 24,
+    fontSize: FONT_SIZES.heading,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
-    color: '#FFFFFF',
-    marginBottom: 20,
+    color: COLORS.textColor0,
+    marginBottom: SPACING.large,
   },
-  // Floating Action Button style
   fab: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    bottom: SPACING.large + 60,
+    right: SPACING.large,
     width: 56,
     height: 56,
-    borderRadius: 10,
-    backgroundColor: '#FFFFFF',
+    borderRadius: SPACING.small,
+    backgroundColor: COLORS.accent,
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
   },
-  // Input fields style
   input: {
     width: '100%',
     height: 50,
-    backgroundColor: '#1E1E1E',
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 15,
-    fontSize: 16,
-    color: '#FFFFFF',
+    backgroundColor: COLORS.bgLayer1,
+    borderRadius: SPACING.small,
+    paddingHorizontal: SPACING.medium,
+    marginBottom: SPACING.medium,
+    fontSize: FONT_SIZES.medium,
+    color: COLORS.textColor0,
   },
-  // Modal-specific styles grouped under "modal"
   modal: {
-    // Modal container covers the full screen
     container: {
       flex: 1,
-      backgroundColor: '#121212',
-      padding: 20,
+      backgroundColor: COLORS.bgLayer2,
+      padding: SPACING.large,
       alignItems: 'center',
     },
-    // Allows the ScrollView content to grow to full height
     contentWrapper: {
       flexGrow: 1,
     },
-    // Inner container that spaces out the content and the buttons
     innerContainer: {
       flex: 1,
       justifyContent: 'space-between',
       width: '100%',
     },
-    // Modal title style
     title: {
-      fontSize: 20,
+      fontSize: FONT_SIZES.title,
       fontWeight: 'bold',
-      color: '#FFFFFF',
-      marginBottom: 20,
-      paddingHorizontal: 5,
+      color: COLORS.textColor0,
+      marginBottom: SPACING.large,
+      paddingHorizontal: SPACING.small / 2,
     },
-    // Container for the modal action buttons
     buttons: {
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -75,22 +91,21 @@ const globalStyles = StyleSheet.create({
       marginTop: 'auto',
       width: '100%',
     },
-    // Style for each action button
     actionButton: {
       flex: 0.48,
       height: 56,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: COLORS.accent,
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 10,
+      borderRadius: SPACING.small,
     },
-    // Text style for action buttons
     actionButtonText: {
-      fontSize: 18,
+      fontSize: FONT_SIZES.large,
       fontWeight: 'bold',
-      color: '#121212',
+      color: COLORS.bgLayer0,
     },
   },
 });
 
 export default globalStyles;
+export { COLORS };
